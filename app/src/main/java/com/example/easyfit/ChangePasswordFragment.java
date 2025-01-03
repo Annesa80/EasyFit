@@ -64,7 +64,7 @@ public class ChangePasswordFragment extends Fragment {
 
         // Check if the new password and re-entered password match
         if (!newPassword.equals(reenteredPassword)) {
-            Toast.makeText(getContext(), "New passwords do not match", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "Password do not match", Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -77,7 +77,6 @@ public class ChangePasswordFragment extends Fragment {
 
         //Aunthenticate with email first
         if (email.equals(user.getEmail())){
-
             // Reauthenticate the user with the current password
             AuthCredential credential = EmailAuthProvider.getCredential(user.getEmail(), currentPassword);
 
@@ -98,6 +97,7 @@ public class ChangePasswordFragment extends Fragment {
                     Toast.makeText(getContext(), "Reauthentication failed. Please check your old password.", Toast.LENGTH_SHORT).show();
                 }
             });
+
         } else {
             Toast.makeText(getContext(), "Wrong email!", Toast.LENGTH_SHORT).show();
         }
