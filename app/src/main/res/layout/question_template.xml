@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- res/layout/question_template.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/lightblue"
+    android:orientation="vertical"
+    android:paddingLeft="10dp"
+    android:layout_marginBottom="30dp">
+
+    <!-- Question Text -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <EditText
+            android:id="@+id/ETQuestion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:ems="8"
+            android:hint="Question"
+            android:inputType="text"
+            android:textColorHint="@color/mediumgray"
+            android:textSize="30dp" />
+
+        <ImageView
+            android:id="@+id/IVAdd"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="5dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/btnadd" />
+
+        <ImageView
+            android:id="@+id/IVDelete"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="5dp"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/btndelete" />
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp">
+
+        <TextView
+            android:id="@+id/TVOpt1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="24dp"
+            android:text="Option 1:"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/ETOpt1"
+            android:layout_width="241dp"
+            android:layout_height="47dp"
+            android:layout_marginStart="56dp"
+            android:ems="10"
+            android:hint="choice 1..."
+            android:inputType="text"
+            app:layout_constraintBottom_toBottomOf="@+id/TVOpt1"
+            app:layout_constraintStart_toEndOf="@+id/TVOpt1"
+            app:layout_constraintTop_toTopOf="@+id/TVOpt1"
+            app:layout_constraintVertical_bias="0.461" />
+
+        <TextView
+            android:id="@+id/TVOpt2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="36dp"
+            android:text="Option 2:"
+            app:layout_constraintStart_toStartOf="@+id/TVOpt1"
+            app:layout_constraintTop_toBottomOf="@+id/TVOpt1" />
+
+        <EditText
+            android:id="@+id/ETOpt2"
+            android:layout_width="241dp"
+            android:layout_height="47dp"
+            android:layout_marginStart="56dp"
+            android:ems="10"
+            android:hint="choice 2..."
+            android:inputType="text"
+            app:layout_constraintBottom_toBottomOf="@+id/TVOpt2"
+            app:layout_constraintStart_toEndOf="@+id/TVOpt2"
+            app:layout_constraintTop_toTopOf="@+id/TVOpt2" />
+
+        <TextView
+            android:id="@+id/TVOpt3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="Option 3:"
+            app:layout_constraintStart_toStartOf="@+id/TVOpt2"
+            app:layout_constraintTop_toBottomOf="@+id/TVOpt2" />
+
+        <EditText
+            android:id="@+id/ETOpt3"
+            android:layout_width="241dp"
+            android:layout_height="47dp"
+            android:layout_marginStart="56dp"
+            android:ems="10"
+            android:hint="choice 3..."
+            android:inputType="text"
+            app:layout_constraintBottom_toBottomOf="@+id/TVOpt3"
+            app:layout_constraintStart_toEndOf="@+id/TVOpt3"
+            app:layout_constraintTop_toTopOf="@+id/TVOpt3"
+            app:layout_constraintVertical_bias="0.346" />
+
+        <TextView
+            android:id="@+id/TVOpt4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="Option 4:"
+            app:layout_constraintStart_toStartOf="@+id/TVOpt3"
+            app:layout_constraintTop_toBottomOf="@+id/TVOpt3" />
+
+        <EditText
+            android:id="@+id/ETOpt4"
+            android:layout_width="241dp"
+            android:layout_height="47dp"
+            android:layout_marginStart="56dp"
+            android:ems="10"
+            android:hint="choice 4..."
+            android:inputType="text"
+            app:layout_constraintBottom_toBottomOf="@+id/TVOpt4"
+            app:layout_constraintStart_toEndOf="@+id/TVOpt4"
+            app:layout_constraintTop_toTopOf="@+id/TVOpt4"
+            app:layout_constraintVertical_bias="0.285" />
+
+        <TextView
+            android:id="@+id/TVCorrectOpt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="72dp"
+            android:text="Correct Option:"
+            android:textSize="15dp"
+            app:layout_constraintStart_toStartOf="@+id/TVOpt4"
+            app:layout_constraintTop_toBottomOf="@+id/TVOpt4" />
+
+        <!-- Grouping RadioButtons inside a RadioGroup -->
+        <RadioGroup
+            android:id="@+id/RGOpt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toEndOf="@+id/TVCorrectOpt"
+            app:layout_constraintTop_toTopOf="@+id/TVCorrectOpt"
+            app:layout_constraintBottom_toBottomOf="@+id/TVCorrectOpt"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <RadioButton
+                android:id="@+id/RBOption1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1"
+                android:textSize="14sp" />
+
+            <RadioButton
+                android:id="@+id/RBOption2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2"
+                android:textSize="14sp" />
+
+            <RadioButton
+                android:id="@+id/RBOption3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3"
+                android:textSize="14sp" />
+
+            <RadioButton
+                android:id="@+id/RBOption4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="4"
+                android:textSize="14sp" />
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/TVExplanation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="64dp"
+            android:text="Explanation:"
+            android:textSize="15dp"
+            app:layout_constraintStart_toStartOf="@+id/TVCorrectOpt"
+            app:layout_constraintTop_toBottomOf="@+id/TVCorrectOpt" />
+
+        <EditText
+            android:id="@+id/ETExplanation"
+            android:layout_width="241dp"
+            android:layout_height="47dp"
+            android:layout_marginStart="20dp"
+            android:ems="10"
+            android:hint="explain more..."
+            android:inputType="text"
+            app:layout_constraintBottom_toBottomOf="@+id/TVExplanation"
+            app:layout_constraintStart_toEndOf="@+id/TVExplanation"
+            app:layout_constraintTop_toTopOf="@+id/TVExplanation"
+            app:layout_constraintVertical_bias="0.518" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</LinearLayout>

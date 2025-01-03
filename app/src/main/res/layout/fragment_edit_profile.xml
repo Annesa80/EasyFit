@@ -1,0 +1,183 @@
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/CLEditProfile"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EditProfileFragment">
+
+    <!-- Background ImageView -->
+    <ImageView
+        android:id="@+id/background"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="centerCrop"
+        app:srcCompat="@drawable/background"
+        app:layout_constraintWidth_percent="1.0"
+        app:layout_constraintHeight_percent="1.0"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Title TextView -->
+
+    <!-- Logo ImageView -->
+
+    <!-- ScrollView to make the form scrollable -->
+
+    <TextView
+        android:id="@+id/TitleEditProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="Edit Profile"
+        android:textColor="#3366FF"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logoImageView" />
+
+    <ImageView
+        android:id="@+id/logoImageView"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="44dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/easyfit_logo" />
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/TitleEditProfile">
+
+        <!-- LinearLayout to hold all the content that should be scrollable -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Name EditText -->
+
+            <EditText
+                android:id="@+id/nameEditText"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="12dp"
+                android:hint="Name"
+                android:background="@drawable/rounded_box"
+                android:padding="10dp"
+                android:textSize="16sp" />
+
+            <!-- Username EditText -->
+            <EditText
+                android:id="@+id/usernameEditText"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="16dp"
+                android:hint="Username"
+                android:background="@drawable/rounded_box"
+                android:padding="10dp"
+                android:textSize="16sp" />
+
+            <!-- Email EditText -->
+            <EditText
+                android:id="@+id/emailEditText"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="16dp"
+                android:hint="Email"
+                android:background="@drawable/rounded_box"
+                android:padding="10dp"
+                android:textSize="16sp" />
+
+            <!-- Gender EditText -->
+            <EditText
+                android:id="@+id/genderEditText"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="16dp"
+                android:hint="Gender"
+                android:background="@drawable/rounded_box"
+                android:padding="10dp"
+                android:textSize="16sp" />
+
+            <!-- Date of Birth EditText -->
+            <EditText
+                android:id="@+id/dobEditText"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="16dp"
+                android:hint="DOB"
+                android:background="@drawable/rounded_box"
+                android:padding="10dp"
+                android:textSize="16sp" />
+
+            <!-- Phone EditText -->
+            <EditText
+                android:id="@+id/phoneEditText"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="16dp"
+                android:hint="Phone Number"
+                android:background="@drawable/rounded_box"
+                android:padding="10dp"
+                android:textSize="16sp" />
+
+            <!-- Country EditText -->
+            <EditText
+                android:id="@+id/countryEditText"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginTop="16dp"
+                android:hint="Country"
+                android:background="@drawable/rounded_box"
+                android:padding="10dp"
+                android:textSize="16sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp"
+                android:layout_marginLeft="5dp">
+
+                <TextView
+                    android:id="@+id/EditPassword"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="To reset your password, "
+                    android:textSize="15dp"/>
+
+                <TextView
+                    android:id="@+id/EditPasswordClick"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="CLICK HERE."
+                    android:textColor="@color/blue"
+                    android:textSize="15dp"/>
+            </LinearLayout>
+
+            <!-- Update Profile Button -->
+            <Button
+                android:id="@+id/updateProfileButton"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="250dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="24dp"
+                android:backgroundTint="#3366FF"
+                android:text="Update Profile"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp" />
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/lightblue"
+    tools:context=".QuizMainPage">
+
+    <include
+        layout="@layout/activity_quiz_toolbar"
+        android:id="@+id/toolbar"/>
+
+    <Button
+        android:id="@+id/BtnCreateQuiz"
+        android:layout_width="340dp"
+        android:layout_height="325dp"
+        android:layout_marginTop="92dp"
+        android:backgroundTint="@color/lightgray"
+        android:gravity="top|start"
+        android:paddingLeft="20dp"
+        android:paddingTop="15dp"
+        android:text="CREATE QUIZ"
+        android:textAlignment="textStart"
+        android:textColor="@color/mediumgray"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        app:cornerRadius="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnAnswerQuiz"
+        android:layout_width="340dp"
+        android:layout_height="325dp"
+        android:layout_marginTop="52dp"
+        android:backgroundTint="@color/lightgray"
+        android:gravity="top|start"
+        android:paddingLeft="20dp"
+        android:paddingTop="15dp"
+        android:text="ANSWER QUIZ"
+        android:textAlignment="textStart"
+        android:textColor="@color/mediumgray"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        app:cornerRadius="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/BtnCreateQuiz" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="238dp"
+        android:layout_height="172dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintEnd_toEndOf="@+id/BtnCreateQuiz"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="@+id/BtnCreateQuiz"
+        app:layout_constraintTop_toBottomOf="@+id/TVCreate"
+        app:srcCompat="@drawable/bearthinking" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="212dp"
+        android:layout_height="152dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="@+id/btnAnswerQuiz"
+        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintStart_toStartOf="@+id/btnAnswerQuiz"
+        app:layout_constraintTop_toBottomOf="@+id/TVAnswer"
+        app:srcCompat="@drawable/quizicon" />
+
+    <TextView
+        android:id="@+id/TVCreate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:text="Create your own quizzes and publish them!"
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="@+id/BtnCreateQuiz"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="@+id/BtnCreateQuiz"
+        app:layout_constraintTop_toTopOf="@+id/BtnCreateQuiz" />
+
+    <TextView
+        android:id="@+id/TVAnswer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="58dp"
+        android:text="Answer quizzes and check your result!"
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="@+id/btnAnswerQuiz"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/btnAnswerQuiz"
+        app:layout_constraintTop_toTopOf="@+id/btnAnswerQuiz" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

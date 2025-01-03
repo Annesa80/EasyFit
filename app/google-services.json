@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "36652837080",
+    "firebase_url": "https://easyfit-894ec-default-rtdb.firebaseio.com",
+    "project_id": "easyfit-894ec",
+    "storage_bucket": "easyfit-894ec.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:36652837080:android:201ace6ab5b0d2cfffcfad",
+        "android_client_info": {
+          "package_name": "com.example.easyfit"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA_-wWGDGB-VMdfbtNcVrv-awyaQRQOlAs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:36652837080:android:a132b55cdb9ad6dfffcfad",
+        "android_client_info": {
+          "package_name": "com.example.milestone"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA_-wWGDGB-VMdfbtNcVrv-awyaQRQOlAs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:36652837080:android:338c4a577bc81bb8ffcfad",
+        "android_client_info": {
+          "package_name": "com.example.workoutlist"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA_-wWGDGB-VMdfbtNcVrv-awyaQRQOlAs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
