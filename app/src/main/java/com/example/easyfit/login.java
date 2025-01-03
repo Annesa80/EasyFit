@@ -124,7 +124,13 @@ public class login extends AppCompatActivity {
 
             }
         });
+    }
 
+    @Override
+    public void onBackPressed() {
+        // Do nothing when the back button is pressed
+        // This will prevent the user from going back to the previous activity
+        super.onBackPressed();
     }
 
 }

@@ -13,6 +13,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 public class eatingplatereference extends AppCompatActivity {
+    private Button doneButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,9 +21,8 @@ public class eatingplatereference extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_eatingplatereference);
 
-        Button button = findViewById(R.id.donebutton);
-        button.setOnClickListener(new View.OnClickListener() {
-
+        doneButton = findViewById(R.id.donebutton);
+        doneButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 FragmentManager FM = getSupportFragmentManager();
@@ -32,8 +32,5 @@ public class eatingplatereference extends AppCompatActivity {
 
             }
         });
-
-
-
     }
 }

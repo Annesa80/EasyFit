@@ -57,7 +57,7 @@ public class HomeFragment extends Fragment {
         ImageView image1 = view.findViewById(R.id.moodtracker);
         ImageView image2 = view.findViewById(R.id.balanceddiet);
         ImageView image3 = view.findViewById(R.id.quiz);
-        ImageView image4 = view.findViewById(R.id.notificationWO);
+        ImageView image4 = view.findViewById(R.id.healthTip);
 
         image1.setOnClickListener(new View.OnClickListener() {
             @Override
