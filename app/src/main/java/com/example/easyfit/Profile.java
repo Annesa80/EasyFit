@@ -10,14 +10,14 @@ public class Profile {
     private String phone;
     private String country;
 
-    private String ProfileImageURL;  // Use exactly the same name as in Firebase
+    private String profileImageURL;  // Use exactly the same name as in Firebase
 
     // Default constructor required for Firebase
     public Profile() {
     }
 
     // Constructor with all fields
-    public Profile(String name, String username, String email, String gender, String dob, String phone, String country, String ProfileImageURL) {
+    public Profile(String name, String username, String email, String gender, String dob, String phone, String country, String profileImageURL) {
         this.name = name;
         this.username = username;
         this.email = email;
@@ -25,10 +25,10 @@ public class Profile {
         this.dob = dob;
         this.phone = phone;
         this.country = country;
-        this.ProfileImageURL = ProfileImageURL;  // Initialize ProfileImageURL
+        this.profileImageURL = profileImageURL;  // Initialize profileImageURL
     }
 
-    // Getter and setter methods for all fields, including ProfileImageURL
+    // Getter and setter methods for all fields, including profileImageURL
     public String getName() {
         return name;
     }
@@ -85,11 +85,11 @@ public class Profile {
         this.country = country;
     }
 
-    public String getProfileImageURL() {
-        return ProfileImageURL;
+    public String getprofileImageURL() {
+        return profileImageURL;
     }
 
-    public void setProfileImageURL(String ProfileImageURL) {
-        this.ProfileImageURL = ProfileImageURL;
+    public void setprofileImageURL(String profileImageURL) {
+        this.profileImageURL = profileImageURL;
     }
 }

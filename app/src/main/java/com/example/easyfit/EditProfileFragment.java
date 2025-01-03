@@ -29,7 +29,7 @@ public class EditProfileFragment extends Fragment {
     private EditText nameEditText, usernameEditText, emailEditText, genderEditText, dobEditText,
             phoneEditText, countryEditText;
     private TextView EditPasswordClick;
-    private String ImageURL;
+    private String profileImageURL;
 
     private Button updateProfileButton;
 
@@ -82,7 +82,7 @@ public class EditProfileFragment extends Fragment {
                         dobEditText.setText(profile.getDob());
                         phoneEditText.setText(profile.getPhone());
                         countryEditText.setText(profile.getCountry());
-                        ImageURL = profile.getProfileImageURL();
+                        profileImageURL = profile.getprofileImageURL();
 
                     }
                 } else {
@@ -128,7 +128,7 @@ public class EditProfileFragment extends Fragment {
             }
 
             // Create a Profile object with the updated data
-            Profile updatedProfile = new Profile(name, username, email, gender, dob, phone, country, ImageURL);
+            Profile updatedProfile = new Profile(name, username, email, gender, dob, phone, country, profileImageURL);
 
             // Save the updated profile to Firebase Realtime Database
             mDatabase.child("users").child(userId).setValue(updatedProfile)

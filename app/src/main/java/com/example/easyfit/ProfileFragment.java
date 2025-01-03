@@ -78,11 +78,11 @@ public class ProfileFragment extends Fragment {
                     greeting.setText("Hi, " + userProfile.getName());
 
                     // Fetch the profile image URL and set it
-                    String profileImageUrl = userProfile.getProfileImageURL() + ".jpg"; // Get the profile image URL from Profile object
+                    String profileImageUrl = userProfile.getprofileImageURL() + ".jpg"; // Get the profile image URL from Profile object
 
                     Log.d("ProfileFragment", "Profile Image URL: " + profileImageUrl);  // Debugging log to verify the URL
 
-                    if (!profileImageUrl.equals("NULL")) {
+                    if (!profileImageUrl.equals("null.jpg") && !profileImageUrl.isEmpty()) {
                         Glide.with(getContext())
                                 .load(profileImageUrl) // Load the profile image from the URL
                                 .into(profileImage); // Set the image into the ImageView

@@ -100,7 +100,7 @@ public class signup extends AppCompatActivity {
                 String confirmPassword = String.valueOf(editTextpasswordAgain.getText());
                 String gender = "";
                 String dob = "";
-                String ProfileImageURL = "NULL";
+                String ProfileImageURL = "null";
 
 
                 if (TextUtils.isEmpty(name)) {

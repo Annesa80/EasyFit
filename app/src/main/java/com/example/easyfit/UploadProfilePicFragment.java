@@ -78,7 +78,7 @@ public class UploadProfilePicFragment extends Fragment {
                 String email = snapshot.child("email").getValue(String.class);
 
                 // You can also load the profile image if needed
-                String profileImageUrl = snapshot.child("ProfileImageURL").getValue(String.class);
+                String profileImageUrl = snapshot.child("profileImageURL").getValue(String.class);
                 if (profileImageUrl != null && !profileImageUrl.isEmpty()) {
                     Picasso.get().load(profileImageUrl).into(profilePicturePlaceholder);
                 } else {
@@ -136,8 +136,8 @@ public class UploadProfilePicFragment extends Fragment {
         DatabaseReference userRef = mDatabase.getReference("users")
                 .child(mAuth.getCurrentUser().getUid());
 
-        // Update the ProfileImageURL in Firebase
-        userRef.child("ProfileImageURL").setValue(imageUrl).addOnCompleteListener(task -> {
+        // Update the profileImageURL in Firebase
+        userRef.child("profileImageURL").setValue(imageUrl).addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
                 Toast.makeText(getContext(), "Profile updated successfully", Toast.LENGTH_SHORT).show();
                 PBProfile.setVisibility(View.GONE);
