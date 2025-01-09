@@ -18,6 +18,10 @@ import com.example.easyfit.CommentFragment;
 import com.example.easyfit.MainActivity;
 import com.example.easyfit.R;
 import com.example.easyfit.models.ModelPost;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -42,6 +46,7 @@ public class AdapterPosts extends RecyclerView.Adapter<AdapterPosts.MyHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull MyHolder holder, int i) {
+
         //get data
         ModelPost modelPost = postList.get(i);
         String uid = modelPost.getuid();
@@ -51,6 +56,37 @@ public class AdapterPosts extends RecyclerView.Adapter<AdapterPosts.MyHolder> {
         String pId = modelPost.getpId();
         String pDescr = modelPost.getpDescr();
         String pImage = modelPost.getpImage();
+
+        FirebaseDatabase.getInstance().getReference("users")
+                .child(uid) // Use uid to locate the user in the database
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (snapshot.exists()) {
+                            //fetch username
+                            String fetchedUsername = snapshot.child("username").getValue(String.class);
+                            holder.TVUsername.setText(fetchedUsername); // Set the username
+
+                            //fetch profile pic
+                            String fetchedProfilePic = snapshot.child("profileImageURL").getValue(String.class);
+                            if (fetchedProfilePic != null && !fetchedProfilePic.isEmpty()) {
+                                Picasso.get().load(fetchedProfilePic)
+                                        .placeholder(R.drawable.ic_outline_person_24)
+                                        .into(holder.IVProfile);
+                            } else {
+                                holder.IVProfile.setImageResource(R.drawable.ic_outline_person_24); // Default image
+                            }
+
+                        } else {
+                            holder.TVUsername.setText("Unknown User"); // Default if user not found
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                        Toast.makeText(context, "Error fetching username", Toast.LENGTH_SHORT).show();
+                    }
+                });
 
         //set data
         holder.TVUsername.setText(uName);

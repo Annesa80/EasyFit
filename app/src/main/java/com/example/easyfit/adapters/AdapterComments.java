@@ -12,6 +12,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.easyfit.R;
 import com.example.easyfit.models.ModelComment;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -49,13 +53,37 @@ public class AdapterComments extends RecyclerView.Adapter<AdapterComments.MyHold
         holder.TVUsername.setText(uName);
         holder.TVComment.setText(comment);
 
-        //set user dp
-        try{
-            Picasso.get().load(uDp).placeholder(R.drawable.ic_outline_person_24).into(holder.IVProfile);
-        }
-        catch (Exception e){
-            holder.IVProfile.setImageResource(R.drawable.ic_outline_person_24);
-        }
+        // Fetch username and profile picture from Firebase using UID
+        FirebaseDatabase.getInstance().getReference("users")
+                .child(uid) // Use uid to locate the user in the database
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        if (snapshot.exists()) {
+                            // Fetch username
+                            String fetchedUsername = snapshot.child("username").getValue(String.class);
+                            holder.TVUsername.setText(fetchedUsername != null ? fetchedUsername : "Unknown User");
+
+                            // Fetch profile picture
+                            String fetchedProfilePic = snapshot.child("profileImageURL").getValue(String.class);
+                            if (fetchedProfilePic != null && !fetchedProfilePic.isEmpty()) {
+                                Picasso.get().load(fetchedProfilePic)
+                                        .placeholder(R.drawable.ic_outline_person_24)
+                                        .into(holder.IVProfile);
+                            } else {
+                                holder.IVProfile.setImageResource(R.drawable.ic_outline_person_24); // Default image
+                            }
+                        } else {
+                            holder.TVUsername.setText("Unknown User");
+                            holder.IVProfile.setImageResource(R.drawable.ic_outline_person_24); // Default profile picture
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                        // Handle error while fetching user data
+                    }
+                });
     }
 
     @Override
@@ -77,3 +105,4 @@ public class AdapterComments extends RecyclerView.Adapter<AdapterComments.MyHold
         }
     }
 }
+

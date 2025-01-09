@@ -89,9 +89,6 @@ public class WellnessHubFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_wellness__hub_, container, false);
 
-        // Set Toolbar title for Wellness Hub
-        ((MainActivity) requireActivity()).updateToolbar("Wellness Hub", false);
-
         //init
         firebaseAuth = FirebaseAuth.getInstance();
 
@@ -112,11 +109,7 @@ public class WellnessHubFragment extends Fragment {
         // FAB click listener
         FloatingActionButton fab = view.findViewById(R.id.fab_add_post);
         fab.setOnClickListener(v -> {
-            getParentFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.frame_layout, new AddPostFragment())
-                    .addToBackStack(null)
-                    .commit();
+            ((MainActivity) requireActivity()).replaceFragment(new AddPostFragment());
         });
 
         // Inflate the layout for this fragment
@@ -165,9 +158,13 @@ public class WellnessHubFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+    }
 
-        // Update the toolbar with title and back button
-        ((MainActivity) requireActivity()).updateToolbar("Wellness Hub", true);
+    @Override
+    public void onResume() {
+        super.onResume();
+        // Update toolbar when fragment becomes visible
+        ((MainActivity) requireActivity()).updateToolbarForFragment(this);
     }
 
 }

@@ -200,6 +200,14 @@ public class AddPostFragment extends Fragment {
                     descriptionEt.setText("");
                     imageIv.setImageURI(null);
                     imageUri = null;
+
+                    // Navigate back to Wellness Hub fragment
+                    Fragment wellnessHubFragment = new WellnessHubFragment();
+                    getParentFragmentManager()
+                            .beginTransaction()
+                            .replace(R.id.frame_layout, wellnessHubFragment)
+                            .addToBackStack(null)
+                            .commit();
                 })
                 .addOnFailureListener(e -> {
                     pd.dismiss();

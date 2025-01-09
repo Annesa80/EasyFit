@@ -5,6 +5,7 @@ package com.example.easyfit;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.CalendarView;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
@@ -36,6 +37,7 @@ public class moodTracker extends AppCompatActivity {
     private RecyclerView recyclerView;
     private String selectedDate = "";
     private DatabaseReference databaseReference;
+    private ImageView IVBtnBack;
     private ArrayList<mood> moodList;
     private moodAdapter moodAdapter;
 
@@ -48,6 +50,15 @@ public class moodTracker extends AppCompatActivity {
         btnSaveMood = findViewById(R.id.btn_save_mood);
         calendarView = findViewById(R.id.calendarView);
         recyclerView = findViewById(R.id.recyclerView);
+
+        // Initialize views
+        IVBtnBack = findViewById(R.id.IVBtnBack);
+
+        // Set OnClickListener for the back button
+        IVBtnBack.setOnClickListener(v -> {
+            // Finish the current activity and return to the previous one
+            onBackPressed(); // This is the same as calling finish()
+        });
 
         // Initialize Firebase database reference
         databaseReference = FirebaseDatabase.getInstance().getReference("Moods");

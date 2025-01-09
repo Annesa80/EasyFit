@@ -40,6 +40,7 @@ public class signup extends AppCompatActivity {
     TextView signinLink;
     Button regButton;
     FirebaseAuth mAuth;
+    String uid;
     ProgressBar progressBar;
     private DatabaseReference mDatabase;
 
@@ -120,18 +121,32 @@ public class signup extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         progressBar.setVisibility(View.GONE);
-                        if(task.isSuccessful()){
+                        if(task.isSuccessful()) {
                             //Signed in success, update ui with the user information
-                            Toast.makeText(signup.this,"Account Created",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(signup.this, "Account Created", Toast.LENGTH_SHORT).show();
                             FirebaseUser user = mAuth.getCurrentUser();
-                            Intent intent = new Intent(getApplicationContext(), login.class);
-                            startActivity(intent);
-                            finish();
+                            if (user != null) {
+                                uid = user.getUid();
 
-                        }else{
+                            }
+                            mDatabase.child(uid).setValue(newUser).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    if (task.isSuccessful()) {
+                                        Toast.makeText(signup.this, "Account Created", Toast.LENGTH_SHORT).show();
+                                        Intent intent = new Intent(getApplicationContext(), login.class);
+                                        startActivity(intent);
+                                        finish();
+                                    } else {
+                                        Toast.makeText(signup.this, "Failed to save user data.", Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            });
+
+                        } else {
                             //Sign In failed, display messages to user
-                            Toast.makeText(signup.this,"Authentication failed.",Toast.LENGTH_SHORT).show();}
-
+                            Toast.makeText(signup.this, "Authentication failed.", Toast.LENGTH_SHORT).show();
+                        }
                     }
                 });
             }

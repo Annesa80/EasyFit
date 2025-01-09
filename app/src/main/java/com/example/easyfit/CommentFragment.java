@@ -46,7 +46,7 @@ public class CommentFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        ((MainActivity) requireActivity()).updateToolbar("Comments", true);
+        ((MainActivity) requireActivity()).updateToolbarForFragment(this);
 
         View view = inflater.inflate(R.layout.fragment_comment, container, false);
 

@@ -82,8 +82,8 @@
 
     <ImageView
         android:id="@+id/imageView6"
-        android:layout_width="113dp"
-        android:layout_height="125dp"
+        android:layout_width="78dp"
+        android:layout_height="100dp"
         android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -276,7 +276,7 @@
         android:id="@+id/groupProtein"
         android:layout_width="334dp"
         android:layout_height="54dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="40dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"

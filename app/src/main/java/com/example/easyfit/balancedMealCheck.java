@@ -25,6 +25,10 @@ public class balancedMealCheck extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_balanced_meal_check);
 
+        Toast.makeText(this,
+                "Welcome! Please click the portion of each category (Protein, Carbohydrate, Fiber) based on your meal intake.",
+                Toast.LENGTH_LONG).show();
+
         TextView showResult = findViewById(R.id.result);
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {

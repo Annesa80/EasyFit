@@ -94,12 +94,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // Replace fragments dynamically
-    private void replaceFragment(Fragment fragment) {
+    public void replaceFragment(Fragment fragment) {
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         transaction.replace(R.id.frame_layout, fragment);
         transaction.addToBackStack(null);
         transaction.commit();
+
+        updateToolbarForFragment(fragment);
     }
 
     // Update the toolbar title and back button visibility
@@ -108,6 +110,31 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle(title);
     }
+
+    public void updateToolbarForFragment(Fragment fragment) {
+        if (getSupportActionBar() == null) return;
+
+        if (fragment instanceof HomeFragment) {
+            getSupportActionBar().setTitle("Home");
+            getSupportActionBar().setDisplayHomeAsUpEnabled(false); // No back button
+        } else if (fragment instanceof WellnessHubFragment) {
+            getSupportActionBar().setTitle("Wellness Hub");
+            getSupportActionBar().setDisplayHomeAsUpEnabled(false); // No back button
+        }else if (fragment instanceof ProfileFragment) {
+            getSupportActionBar().setTitle("Profile");
+            getSupportActionBar().setDisplayHomeAsUpEnabled(false); // No back button
+        } else if (fragment instanceof AddPostFragment) {
+            getSupportActionBar().setTitle("Add Post");
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true); // Back button enabled
+            toolbar.setNavigationOnClickListener(v -> onBackPressed());
+        } else if (fragment instanceof CommentFragment) {
+            getSupportActionBar().setTitle("Comments");
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true); // Back button enabled
+            toolbar.setNavigationOnClickListener(v -> onBackPressed());
+        }
+    }
+
+
 
     @Override
     public boolean onSupportNavigateUp() {
@@ -118,7 +145,14 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
-            getSupportFragmentManager().popBackStack(); // Pops the top fragment
+            getSupportFragmentManager().popBackStack();
+
+            // Update the toolbar title and back button dynamically
+            Fragment currentFragment = getSupportFragmentManager().findFragmentById(R.id.frame_layout);
+            if (currentFragment != null) {
+                updateToolbarForFragment(currentFragment);
+            }
+
         } else {
             super.onBackPressed(); // If no fragments, exit the app
         }
