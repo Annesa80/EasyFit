@@ -82,7 +82,8 @@ public class Quiz {
 
         @Override
         public String toString() {
-            return "Question: " + questionText + "\nOptions: " + options + "\nCorrect Option: " + correctOption + "\nExplanation: " + explanation;
+            return "Question: " + questionText + "\nOptions: " + options + "\nCorrect Option: " +
+                    correctOption + "\nExplanation: " + explanation;
         }
 
 
